@@ -150,11 +150,12 @@ bool ParseRmcTime(const char* rmc, uint16_t rmc_len, LidarSetUtcSyncTimeRequest*
     rmc_begin = strstr(rmc, "$GNRMC");
   }
   if (rmc_begin == NULL) {
-    return false;
+    printf("rmc_begin null");
+    // return false;
   }
-  if (!ChecksumRmc(rmc_begin, rmc + rmc_len)) {
-    return false;
-  }
+  // if (!ChecksumRmc(rmc_begin, rmc + rmc_len)) {
+  //   return false;
+  // }
 
   char utc_hms_buff[HMS_PARSE_BUF] = { 0 };
   char utc_yy_buff[YY_PARSE_BUF] = { 0 };
